@@ -1,6 +1,8 @@
+<img [src]="imageURL" />
 <h2>{{"Title: " + getTitle()}}</h2>
 <ul>
   <li *ngFor="let course of courses">
     {{ course }}
   </li>
 </ul>
+<button class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive ? 'blue' : 'white'" (click)="handleClick()">Click Me!</button>

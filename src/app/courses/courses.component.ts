@@ -7,6 +7,10 @@ import { CoursesService } from './courses.service';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+  title = "List of courses";
+  courses;
+  isActive = true;
+  imageURL = 'https://www.manhassetschools.org/cms/lib/NY01913789/Centricity/Domain/18/academics%20books.jpg';
 
   constructor(service: CoursesService) {
     this.courses = service.getCourses();
@@ -15,10 +19,11 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
   }
 
-  title = "List of courses";
-  courses;
-
   getTitle() {
     return this.title;
+  }
+
+  handleClick() {
+    console.log('clicked!');
   }
 }
