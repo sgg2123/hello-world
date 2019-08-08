@@ -11,6 +11,7 @@ export class CoursesComponent implements OnInit {
   courses;
   isActive = true;
   imageURL = 'https://www.manhassetschools.org/cms/lib/NY01913789/Centricity/Domain/18/academics%20books.jpg';
+  email = '';
 
   constructor(service: CoursesService) {
     this.courses = service.getCourses();
@@ -23,7 +24,11 @@ export class CoursesComponent implements OnInit {
     return this.title;
   }
 
-  handleClick() {
-    console.log('clicked!');
+  handleClick($event) {
+    console.log('clicked!', $event);
+  }
+
+  onKeyUp() {
+    console.log(this.email);
   }
 }
