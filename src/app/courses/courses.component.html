@@ -1,3 +1,13 @@
+<p>Title: {{course.title | uppercase }}</p>
+<p>{{course.students | number }} students</p>
+<p>{{course.rating | number:'1.2-2' }} star rating</p>
+<p>{{course.price | currency }}</p>
+<p>released on {{ course.releaseDate | date:'longDate' }}</p>
+
+<div>
+  {{ text | summary:49 }}
+</div>
+
 <img [src]="imageURL" />
 <h2>{{"Title: " + getTitle()}}</h2>
 <ul>
