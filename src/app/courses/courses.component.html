@@ -15,5 +15,17 @@
     {{ course }}
   </li>
 </ul>
-<button class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive ? 'blue' : 'white'" (click)="handleClick($event)">Click Me!</button>
-<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" placeholder="Type email, press enter" />
+
+<button
+  class="btn btn-primary"
+  [class.active]="isActive"
+  [style.backgroundColor]="isActive ? 'blue' : 'white'"
+  (click)="handleClick($event)">
+  Click Me!
+</button>
+
+<input
+  [(ngModel)]="email"
+  (keyup.enter)="onKeyUp()"
+  placeholder="Type email, press enter"
+/>

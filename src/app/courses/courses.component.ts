@@ -19,7 +19,7 @@ export class CoursesComponent implements OnInit {
     price: 10000.00,
     releaseDate: new Date(2019, 7, 8)
   };
-  text = 'here is a detailed description that is very very very very long'
+  text = 'here is a detailed description that is very very very very long';
 
   constructor(service: CoursesService) {
     this.courses = service.getCourses();
