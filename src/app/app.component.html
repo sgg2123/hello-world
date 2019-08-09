@@ -8,7 +8,10 @@
 <h1>Angular!!!</h1>
 <courses></courses>
 <authors></authors>
-<favorite></favorite>
+<favorite
+  [is-favorite]="post.isFavorite"
+  (click-favorite)="onFavoriteChange($event)">
+</favorite>
 
 <div>
   <input type="text" [(ngModel)]="inputText">
