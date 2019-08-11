@@ -18,6 +18,8 @@ export class AppComponent {
     isActive: true,
     likesCount: 10
   };
+  viewMode = 'other';
+  canSave = true;
 
   onFavoriteChange(eventArgs: FavoriteChangedEventArgs) {
     console.log('changed', eventArgs);

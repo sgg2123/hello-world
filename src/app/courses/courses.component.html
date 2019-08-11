@@ -10,11 +10,22 @@
 
 <img [src]="imageURL" />
 <h2>{{"Title: " + getTitle()}}</h2>
+<button (click)="loadCourses()">Load Courses</button>
+<button (click)="onAdd()">Add</button>
 <ul>
-  <li *ngFor="let course of courses">
-    {{ course }}
+  <li *ngFor="let course of courses; index as i; even as isEven; trackBy: trackCourse">
+    {{ course.name }} <span *ngIf="isEven">(index {{ i }} even)</span>
+    <button (click)="onRemove(course)">Remove</button>
   </li>
 </ul>
+
+<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+  We have courses!
+</ng-template>
+<ng-template #noCourses>
+  No courses yet!
+</ng-template>
 
 <button
   class="btn btn-primary"

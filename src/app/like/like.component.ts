@@ -12,8 +12,8 @@ export class LikeComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Input('likesCount') likesCount: number;
-  @Input('isActive') isActive: boolean;
+  @Input('likes-count') likesCount: number;
+  @Input('is-active') isActive: boolean;
 
   onClick() {
     this.likesCount += (this.isActive) ? -1:1;

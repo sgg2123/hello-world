@@ -8,7 +8,7 @@ import { CoursesService } from './courses.service';
 })
 export class CoursesComponent implements OnInit {
   title = "List of courses";
-  courses;
+  courses = [];
   isActive = true;
   imageURL = 'https://www.manhassetschools.org/cms/lib/NY01913789/Centricity/Domain/18/academics%20books.jpg';
   email = '';
@@ -21,9 +21,9 @@ export class CoursesComponent implements OnInit {
   };
   text = 'here is a detailed description that is very very very very long';
 
-  constructor(service: CoursesService) {
-    this.courses = service.getCourses();
-  }
+  // constructor(service: CoursesService) {
+  //   this.courses = service.getCourses();
+  // }
 
   ngOnInit() {
   }
@@ -38,5 +38,22 @@ export class CoursesComponent implements OnInit {
 
   onKeyUp() {
     console.log(this.email);
+  }
+
+  onAdd() {
+    this.courses.push({ id: 4, name: "course 4" })
+  }
+
+  onRemove(course) {
+    let i = this.courses.indexOf(course);
+    this.courses.splice(i, 1);
+  }
+
+  loadCourses() {
+    this.courses = CoursesService.getCourses();
+  }
+
+  trackCourse(index, course) {
+    return course ? course.id : undefined;
   }
 }
