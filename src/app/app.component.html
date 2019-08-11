@@ -1,3 +1,5 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -20,12 +22,14 @@
 </div>
 
 <bootstrap-panel>
-  <div class="heading">Heading</div>
-  <div class="body">
+  <ng-container class="heading">Heading</ng-container>
+  <ng-container class="body">
     <h2>body</h2>
     <p>some content here...</p>
-  </div>
+  </ng-container>
 </bootstrap-panel>
+
+<like [likesCount]="tweet.likesCount" [isActive]="tweet.isActive"></like>
 
 
 <router-outlet></router-outlet>
