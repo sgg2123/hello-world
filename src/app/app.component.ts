@@ -20,6 +20,10 @@ export class AppComponent {
   };
   viewMode = 'other';
   canSave = true;
+  task = {
+    title: 'Review applications',
+    asignee: null
+  }
 
   onFavoriteChange(eventArgs: FavoriteChangedEventArgs) {
     console.log('changed', eventArgs);
