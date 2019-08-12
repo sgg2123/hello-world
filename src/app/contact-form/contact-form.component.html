@@ -1,0 +1,79 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        required
+        minlength="2"
+        ngModel
+        name="firstName"
+        #firstName="ngModel"
+        (change)="log(firstName)"
+        id="firstName"
+        type="text"
+        class="form-control">
+      <div
+        *ngIf="firstName.touched && firstName.invalid"
+        class="alert alert-danger">
+        <div *ngIf="firstName.errors.required">
+          First name required
+        </div>
+        <div *ngIf="firstName.errors.minlength">
+          Must be at least {{ firstName.errors.minlength.requiredLength }} characters long
+        </div>
+      </div>
+      <div *ngIf="contact.valid">contact valid</div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea
+      ngModel
+      name="comment"
+      id="comment"
+      rows="10"
+      cols="30"
+      class="form-control">
+    </textarea>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input
+        type="checkbox"
+        ngModel
+        name="isSubscribed">
+        Subscibe to mailing list
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="contactMethod"></label>
+    <select
+      multiple
+      ngModel
+      name="contactMethod"
+      id="contactMethod"
+      class="form-control">
+      <option value=""></option>
+      <option
+        *ngFor="let method of contactMethods"
+        [ngValue]="method">
+        {{ method.name }}
+      </option>
+    </select>
+  </div>
+  <div *ngFor="let method of contactMethods" class="radio">
+    <label>
+      <input
+        ngModel
+        type="radio"
+        name="contactMethod"
+        [value]="method.id">
+      {{ method.name }}
+    </label>
+  </div>
+  <p>
+    {{ f.value | json }}
+  </p>
+  <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+</form>
