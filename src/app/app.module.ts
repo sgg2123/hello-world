@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,13 +24,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { OtherComponent } from './other/other.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-
+import { PostsComponent } from './posts/posts.component';
+import { PostsService } from './posts/posts.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'authors', component: AuthorsComponent },
+  { path: 'posts', component: PostsComponent },
   { path: 'contact-form', component: ContactFormComponent },
   { path: 'new-course-form', component: NewCourseFormComponent },
   { path: 'other', component: OtherComponent },
@@ -54,7 +56,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomeComponent,
     OtherComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,11 +66,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
-    )
+    ),
+    HttpClientModule
   ],
   providers: [
     CoursesService,
-    AuthorsService
+    AuthorsService,
+    PostsService
   ],
   bootstrap: [AppComponent]
 })
