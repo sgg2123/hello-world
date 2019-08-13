@@ -5,3 +5,20 @@
     {{ author }}
   </li>
 </ul>
+
+<bootstrap-panel>
+  <ng-container class="heading">Heading</ng-container>
+  <ng-container class="body">
+    <p>Body:</p>
+    <p>some content here...</p>
+  </ng-container>
+</bootstrap-panel>
+
+<button
+  [ngStyle]="{
+    'backgroundColor': canSave ? 'blue' : 'grey',
+    'color': canSave ? 'white' : 'black',
+    'fontWeight': canSave ? 'bold' : 'normal'
+  }">
+  Save
+</button>

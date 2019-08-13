@@ -1,15 +1,5 @@
-<p>Title: {{course.title | uppercase }}</p>
-<p>{{course.students | number }} students</p>
-<p>{{course.rating | number:'1.2-2' }} star rating</p>
-<p>{{course.price | currency }}</p>
-<p>released on {{ course.releaseDate | date:'longDate' }}</p>
-
-<div>
-  {{ text | summary:49 }}
-</div>
-
 <img [src]="imageURL" />
-<h2>{{"Title: " + getTitle()}}</h2>
+<h2>{{ getTitle() }}</h2>
 <button (click)="loadCourses()">Load Courses</button>
 <button (click)="onAdd()">Add</button>
 <ul>
@@ -27,6 +17,16 @@
   No courses yet!
 </ng-template>
 
+<ul class="nav nav-pills">
+  <li class="nav-item"><a class="nav-link" [class.active]="viewMode == 'map'" (click)="viewMode = 'map'">Map View</a></li>
+  <li class="nav-item"><a class="nav-link" [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
 <button
   class="btn btn-primary"
   [class.active]="isActive"
@@ -40,3 +40,25 @@
   (keyup.enter)="onKeyUp()"
   placeholder="Type email, press enter"
 />
+
+<p>Best Course: {{course.title | uppercase }}</p>
+<p>{{course.students | number }} students</p>
+<p>{{course.rating | number:'1.2-2' }} star rating</p>
+<p>{{course.price | currency }}</p>
+<p>released on {{ course.releaseDate | date:'longDate' }}</p>
+
+<div>
+  {{ text | summary:49 }}
+</div>
+
+<favorite
+  [is-favorite]="post.isFavorite"
+  (click-favorite)="onFavoriteChange($event)">
+</favorite>
+
+<zippy title="Shipping Details">
+  Shipping Details Content
+</zippy>
+<zippy title="Billing Details">
+  Billing Details Content
+</zippy>

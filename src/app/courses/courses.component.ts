@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from './courses.service';
+import { FavoriteChangedEventArgs } from '../favorite/favorite.component';
+
 
 @Component({
   selector: 'courses',
@@ -20,6 +22,11 @@ export class CoursesComponent implements OnInit {
     releaseDate: new Date(2019, 7, 8)
   };
   text = 'here is a detailed description that is very very very very long';
+  post = {
+    title: 'Title',
+    isFavorite: true
+  };
+  viewMode = 'other';
 
   // constructor(service: CoursesService) {
   //   this.courses = service.getCourses();
@@ -55,5 +62,9 @@ export class CoursesComponent implements OnInit {
 
   trackCourse(index, course) {
     return course ? course.id : undefined;
+  }
+
+  onFavoriteChange(eventArgs: FavoriteChangedEventArgs) {
+    console.log('changed', eventArgs);
   }
 }

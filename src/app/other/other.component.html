@@ -1,0 +1,12 @@
+<h4>Title Case: </h4>
+<div>
+  <input type="text" [(ngModel)]="inputText">
+  <br>
+  {{ inputText | titleCase }}
+</div>
+
+<h4>Press tab to uppercase: </h4>
+<input type="text" [appInputFormat]="'uppercase'"/>
+
+<div>Task: {{ task.title }}</div>
+<div>Assigned to: {{ task.asignee?.name }}</div>
